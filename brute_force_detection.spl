@@ -1,0 +1,5 @@
+index=main sourcetype=csv status=failed
+| bin _time span=5m
+| stats count by _time src_ip username
+| where count >= 5
+| table _time src_ip username count
